@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>heroku tutorial</title>
-</head>
-<body>
-    <h1> heroku app </h1>
-    <?php
-       
-      echo 'php deploy'
-    ?>
-</body>
-</html>
+<?php 
+     // a php that select and all users
+ require_once './inc/headers.php' ;
+ require_once './inc/databaseConfig.php' ;
+   
+ $_POST = json_decode( file_get_contents('php://input') , true ) ;
+
+ if(isset($_POST['user'])){
+      $sql = '' ;
+      $response_data = [] ;
+
+      switch($_POST['user']){
+           case  'fetch_all_students' :
+             $sql = "SELECT * FROM students" ;
+            break ;
+            case  'fetch_all_teachers' :
+             $sql = "SELECT * FROM teachers" ;
+            break ;
+            case  'fetch_all_fhostel' :
+             $sql = "SELECT * FROM female_hostel" ;
+            break ;
+            case  'fetch_all_mhostel' :
+               $sql = "SELECT * FROM male_hostel" ;
+              break ;
+      }
+
+      $result = mysqli_query($conn,$sql) ;
+      while($row = mysqli_fetch_assoc($result)){
+           $response_data[] = $row ;
+      }
+      echo json_encode($response_data) ;
+ }
+
+?>
