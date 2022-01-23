@@ -32,9 +32,16 @@
       echo json_encode($response_data) ;
  } */
  require_once './inc/headers.php' ;
+ require_once './inc/databaseConfig.php' ;
  $_POST = json_decode( file_get_contents('php://input') , true ) ;
 
- if(isset($_POST['user'])) echo 'connected'.$_POST['user'];
+ if(isset($_POST['user'])){
+       
+     $sql = "SELECT * FROM students" ;
+     $result = mysqli_query($conn,$sql) ;
+     if($result) echo 'my sql is working' ;
+
+ }
  else echo 'pending..' ;
 
 ?>
