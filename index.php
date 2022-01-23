@@ -39,9 +39,15 @@
        
      $sql = "SELECT * FROM students" ;
      $result = mysqli_query($conn,$sql) ;
-     if($result) echo 'my sql is working' ;
+     $response_data = [] ;      
+     if($result){
+          while($row = mysqli_fetch_assoc($result)){
+               $response_data[] = $row ;
+          }
+               echo 'std = '.$response_data[1]['email'] ;
+     }
 
  }
- else echo 'pending..' ;
+ else echo 'pending..';
 
 ?>
