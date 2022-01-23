@@ -1,7 +1,8 @@
 <?php 
-     // a php that select and all users
+    /* // a php that select and all users
  require_once './inc/headers.php' ;
  require_once './inc/databaseConfig.php' ;
+ 
    
  $_POST = json_decode( file_get_contents('php://input') , true ) ;
 
@@ -29,6 +30,8 @@
            $response_data[] = $row ;
       }
       echo json_encode($response_data) ;
- }
+ } */
+
+ echo json_encode(['name' => 'server connected']) ;
 
 ?>
