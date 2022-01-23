@@ -1,8 +1,7 @@
 <?php 
-    /* // a php that select and all users
+     // a php that select and all users
  require_once './inc/headers.php' ;
  require_once './inc/databaseConfig.php' ;
- 
    
  $_POST = json_decode( file_get_contents('php://input') , true ) ;
 
@@ -30,24 +29,6 @@
            $response_data[] = $row ;
       }
       echo json_encode($response_data) ;
- } */
- require_once './inc/headers.php' ;
- require_once './inc/databaseConfig.php' ;
- $_POST = json_decode( file_get_contents('php://input') , true ) ;
-
- if(isset($_POST['user'])){
-       
-     $sql = "SELECT * FROM students" ;
-     $result = mysqli_query($conn,$sql) ;
-     $response_data = [] ;      
-     if($result){
-          while($row = mysqli_fetch_assoc($result)){
-               $response_data[] = $row ;
-          }
-               echo 'std = '.$response_data[1]['email'] ;
-     }
-
  }
- else echo 'pending..';
 
 ?>
