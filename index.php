@@ -32,6 +32,8 @@
       echo json_encode($response_data) ;
  } */
  require_once './inc/headers.php' ;
- echo json_encode(['name' => 'server connected']) ;
+ $_POST = json_decode( file_get_contents('php://input') , true ) ;
+
+ echo json_encode(['name' => $_POST['user']]) ;
 
 ?>
