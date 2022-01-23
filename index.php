@@ -34,7 +34,7 @@
  require_once './inc/headers.php' ;
  $_POST = json_decode( file_get_contents('php://input') , true ) ;
 
- if(isset($_POST['user'])) echo 'connected' ;
+ if(isset($_POST['user'])) echo 'connected'.$_POST['user'];
  else echo 'pending..' ;
 
 ?>
