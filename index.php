@@ -31,7 +31,7 @@
       }
       echo json_encode($response_data) ;
  } */
-
+ require_once './inc/headers.php' ;
  echo json_encode(['name' => 'server connected']) ;
 
 ?>
