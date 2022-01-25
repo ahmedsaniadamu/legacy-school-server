@@ -1,10 +1,10 @@
 <?php 
    
    $db_setup = [
-       'host' => 'sql3.freemysqlhosting.net',
-       'username' => 'sql3467355',
-       'password' => 'yQxE523HGP',
-       'db-name' => 'sql3467355'
+       'host' => '***********',
+       'username' => '***********',
+       'password' => '******',
+       'db-name' => '*******8'
    ] ;   
  //database connection 
 $conn = mysqli_connect($db_setup['host'],$db_setup['username'],$db_setup['password'],$db_setup['db-name']);
